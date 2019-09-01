@@ -23,7 +23,7 @@ public class LoginStep extends BaseUtil{
     public void iShouldSeeTheUserformPage() throws Throwable {
 
 
-        System.out.println("The driver is : " + base.StepInfo);
+        System.out.println("The driver is : ");
 
         System.out.println("I should see userform page");
     }

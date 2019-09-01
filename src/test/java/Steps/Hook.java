@@ -4,6 +4,10 @@ import Base.BaseUtil;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.sql.Driver;
 
 
 public class Hook extends BaseUtil{
@@ -18,20 +22,21 @@ public class Hook extends BaseUtil{
     @Before
     public void InitializeTest() {
 
-        System.out.println("Opening the browser : MOCK");
+        System.out.println("Opening the browser");
+        System.setProperty("webdriver.firefox.marionette", "‎/Users/tek/Downloads/Software/geckodriver");
+        driver = new FirefoxDriver();
+        driver.navigate().to("www.google.com");
 
-        //Passing a dummy WebDriver instance step info
-        base.StepInfo = "FirefoxDriver";
+
+
+
     }
 
 
     @After
     public void TearDownTest(Scenario scenario) {
-        if (scenario.isFailed()) {
-            //Take screenshot logic goes here
-            System.out.println(scenario.getName());
-        }
-        System.out.println("Closing the browser : MOCK");
+        driver.close();
+        System.out.println("Closing the browser");
     }
 
 }
